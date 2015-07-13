@@ -1,17 +1,17 @@
-development:
-  adapter: sqlite3
-  database: db/storedom_development
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  # database: postgres
+  database: storedom_dev
   pool: 5
-  timeout: 5000
+  username: postgres
+  password:
+  host: postgres
 
 test:
-  adapter: sqlite3
-  database: db/storedom_test
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: storedom_test
 
 production:
-  adapter: sqlite3
-  database: db/storedom
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: storedom
